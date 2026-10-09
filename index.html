@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>متابعة زيارات الزبائن</title>
+  <meta name="theme-color" content="#C2185B" id="metaTheme">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="الزيارات">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></symbol>
+    <symbol id="i-circle-dashed" viewBox="0 0 24 24"><path d="M10.1 2.18a10 10 0 0 1 3.8 0"/><path d="M17.6 3.71a10 10 0 0 1 2.69 2.7"/><path d="M21.82 10.1a10 10 0 0 1 0 3.8"/><path d="M20.29 17.6a10 10 0 0 1-2.7 2.69"/><path d="M13.9 21.82a10 10 0 0 1-3.8 0"/><path d="M6.4 20.29a10 10 0 0 1-2.69-2.7"/><path d="M2.18 13.9a10 10 0 0 1 0-3.8"/><path d="M3.71 6.4a10 10 0 0 1 2.7-2.69"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+    <symbol id="i-volume-off" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6 9 3l6 3 6-3v15l-6 3-6-3-6 3V6z"/><path d="M9 3v15"/><path d="M15 6v15"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></symbol>
+  </defs>
+</svg>
+
+
+  <!-- ============ شاشة الدخول ============ -->
+  <div id="loginScreen">
+    <div class="login-card">
+      <div class="login-badge"><svg class="ic" aria-hidden="true"><use href="#i-route"/></svg></div>
+      <h1>متابعة زيارات الزبائن</h1>
+      <p class="subtitle">سجّل دخولك لبدء جولتك اليوم</p>
+
+      <div class="field">
+        <label>اسم المندوب</label>
+        <select id="repSelect"></select>
+      </div>
+
+      <div class="field">
+        <label>الرمز السري</label>
+        <input type="password" id="pinInput" placeholder="••••" inputmode="numeric">
+      </div>
+
+      <button class="btn-primary" id="loginBtn">دخول</button>
+      <div class="error-msg" id="loginError"></div>
+      <button class="install-btn" id="installBtn" type="button" hidden>
+        <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>تثبيت التطبيق على الهاتف</span>
+      </button>
+      <p class="ios-hint" id="iosHint" hidden>
+        لتثبيت التطبيق: اضغط زر المشاركة
+        <svg class="ic" aria-hidden="true"><use href="#i-share"/></svg>
+        ثم «إضافة إلى الشاشة الرئيسية».
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ شاشة التطبيق ============ -->
+  <div id="appScreen">
+    <header class="top-bar">
+      <div class="app-title">
+        متابعة الزيارات
+        <span id="repNameLabel"></span>
+      </div>
+      <div class="header-center">
+        <button class="theme-btn" id="themeBtn" aria-label="الوضع الليلي"></button>
+        <button class="theme-btn" id="soundBtn" aria-label="كتم الأصوات"></button>
+      </div>
+      <button class="logout-btn" id="logoutBtn">خروج</button>
+    </header>
+
+    <div class="odometer-strip" id="pendingStrip" style="display:none;">
+      <span class="pending-badge" id="pendingBadge"></span>
+    </div>
+
+    <div class="filter-bar">
+      <div class="region-scroll" id="regionScroll"></div>
+      <div class="region-scroll" id="statusScroll"></div>
+      <div class="status-counter" id="statusCounter"></div>
+    </div>
+
+    <button class="search-fab" id="searchFab" aria-label="بحث"></button>
+    <div class="search-overlay" id="searchOverlay">
+      <input type="text" id="searchInput" list="customerNamesList" placeholder="ابحث بالولاية أو المدينة...">
+      <datalist id="customerNamesList"></datalist>
+      <button class="search-close" id="searchCloseBtn" aria-label="إغلاق"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+
+    <div class="customer-list" id="customerList">
+      <!-- تُملأ ديناميكياً -->
+    </div>
+  </div>
+
+  <!-- ============ نافذة تسجيل الزيارة ============ -->
+  <div class="modal-overlay" id="visitModal">
+    <div class="modal-sheet">
+      <h3 id="modalCustomerName"></h3>
+      <p class="modal-sub">اختر حالة الزيارة</p>
+      <div class="status-options">
+        <button class="status-option done" data-status="تمت الزيارة"><svg class="ic" aria-hidden="true"><use href="#i-check-circle"/></svg><span>تمت الزيارة</span></button>
+        <button class="status-option pending" data-status="لم تتم الزيارة"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>لم تتم الزيارة</span></button>
+        <button class="status-option missing" data-status="لم أجده"><svg class="ic" aria-hidden="true"><use href="#i-x-circle"/></svg><span>لم أجده</span></button>
+      </div>
+      <button class="modal-cancel" id="modalCancel">إلغاء</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- ============ نافذة التفاصيل الإضافية ============ -->
+  <div class="modal-overlay" id="detailsModal">
+    <div class="modal-sheet">
+      <h3 id="detailsCustomerName"></h3>
+      <p class="modal-sub">معلومات إضافية</p>
+      <div id="detailsBody"></div>
+      <button class="modal-cancel" id="detailsClose">إغلاق</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+  <script src="pwa.js"></script>
+</body>
+</html>
